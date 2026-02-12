@@ -851,8 +851,8 @@ def main():
     import argparse
 
     parser = argparse.ArgumentParser(description="jGrants MCP Server (FastMCP Streamable HTTP)")
-    parser.add_argument("--host", default="127.0.0.1", help="ホスト (default: 127.0.0.1)")
-    parser.add_argument("--port", type=int, default=8000, help="ポート (default: 8000)")
+    parser.add_argument("--host", default=os.environ.get("HOST", "0.0.0.0"), help="ホスト (default: 0.0.0.0)")
+    parser.add_argument("--port", type=int, default=int(os.environ.get("PORT", "8000")), help="ポート (default: 8000)")
 
     args = parser.parse_args()
 
